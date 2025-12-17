@@ -1,0 +1,55 @@
+{
+  "name": "@tzylo/auth-middleware",
+  "version": "1.0.0",
+  "description": "Tzylo Auth CE middleware for Fastify and Express",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./fastify": {
+      "types": "./dist/fastify.d.ts",
+      "import": "./dist/fastify.js"
+    },
+    "./express": {
+      "types": "./dist/express.d.ts",
+      "import": "./dist/express.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "auth",
+    "authentication",
+    "jwt",
+    "fastify",
+    "express",
+    "middleware",
+    "tzylo"
+  ],
+  "author": "K B Pramod",
+  "license": "MIT",
+
+  "peerDependencies": {
+    "fastify": "^5",
+    "express": "^4 || ^5"
+  },
+
+  "dependencies": {
+    "jsonwebtoken": "^9.0.3"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "@types/express": "^4 || ^5",
+    "@types/jsonwebtoken": "^9.0.10"
+  }
+}
