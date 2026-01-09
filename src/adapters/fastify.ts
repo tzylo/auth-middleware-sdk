@@ -24,7 +24,7 @@ export function fastifyAuth(options: { jwtSecret: string }) {
       return
     }
 
-    request.user = payload as any
+    request.auth = payload as any
   }
 }
 
@@ -33,7 +33,7 @@ import { hasRequiredRole } from "../hasRole"
 
 export function fastifyRole(requiredRoles: string[]) {
   return async function (request: FastifyRequest, reply: FastifyReply) {
-    const user = request.user as any
+    const user = request.auth as any
 
     if (!user) {
       reply.status(401).send({

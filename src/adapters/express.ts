@@ -22,7 +22,7 @@ export function authMiddleware(options: { jwtSecret: string }) {
       })
     }
 
-    req.user = payload as any
+    req.auth = payload as any
     next()
   }
 }
@@ -32,7 +32,7 @@ import { hasRequiredRole } from "../hasRole"
 
 export function roleMiddleware(requiredRoles: string[]) {
   return function (req: Request, res: Response, next: NextFunction) {
-    const user = req.user as any
+    const user = req.auth as any
 
     if (!user) {
       return res.status(401).json({

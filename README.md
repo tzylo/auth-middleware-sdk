@@ -4,7 +4,7 @@ Framework-agnostic authentication middleware for **Express** and **Fastify**, bu
 
 * 🔐 JWT authentication
 * ⚡ Express & Fastify adapters
-* 🧩 Fully typed `req.user` / `request.user`
+* 🧩 Fully typed `req.auth` / `request.auth`
 * 🧱 Designed for SDK and platform usage
 
 ---
@@ -55,7 +55,7 @@ app.use(
 
 app.get("/protected", (req, res) => {
   res.json({
-    userId: req.user?.id
+    authId: req.auth?.authId
   });
 });
 
@@ -94,7 +94,7 @@ app.addHook(
 
 app.get("/protected", async (request) => {
   return {
-    userId: request.user?.id
+    authId: request.auth?.authId
   };
 });
 
@@ -140,6 +140,7 @@ export interface AuthUser {
   id: string;
   email?: string;
   role?: string;
+  isVerified?: boolean;
 }
 ```
 
@@ -147,8 +148,8 @@ export interface AuthUser {
 
 | Framework | Property       |
 | --------- | -------------- |
-| Express   | `req.user`     |
-| Fastify   | `request.user` |
+| Express   | `req.auth`     |
+| Fastify   | `request.auth` |
 
 The user object is **fully typed** via TypeScript module augmentation.
 
@@ -235,7 +236,7 @@ Planned components:
 
 ## License
 
-MIT © K B Pramod
+MIT © Tzylo
 
 ---
 

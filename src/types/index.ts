@@ -1,6 +1,7 @@
 export interface AuthUser {
-  id: string
-  email?: string
+  authId: string
+  email: string
+  isVerified?: boolean
   role?: string
 }
 
