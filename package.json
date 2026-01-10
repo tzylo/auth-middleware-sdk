@@ -1,6 +1,6 @@
 {
   "name": "@tzylo/auth-middleware",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tzylo Auth CE middleware for Fastify and Express",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,22 +9,12 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./fastify": {
-      "types": "./dist/fastify.d.ts",
-      "import": "./dist/fastify.js",
-      "require": "./dist/fastify.cjs"
-    },
-    "./express": {
-      "types": "./dist/express.d.ts",
-      "import": "./dist/express.js",
-      "require": "./dist/express.cjs"
     }
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --minify",
-    "dev": "tsup src/index.ts --watch --format cjs,esm",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build"
   },
